@@ -1,7 +1,7 @@
 "use strict";
 // Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.narcissistic = exports.descendingOrder = void 0;
+exports.arrayDiff = exports.narcissistic = exports.descendingOrder = void 0;
 // Examples:
 // Input: 42145 Output: 54421
 // Input: 145263 Output: 654321
@@ -43,17 +43,12 @@ const squareDigits = (num) => {
         .map((n) => Math.pow(+n, 2))
         .join("");
 };
-// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
-// Rules for a smiling face:
-// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
-// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
-// Every smiling face must have a smiling mouth that should be marked with either ) or D
-// No additional characters are allowed except for those mentioned.
-// Valid smiley face examples: :) :D ;-D :~)
-// Invalid smiley faces: ;( :> :} :]
-// Example
-// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
-// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
-// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
-// Note
-// In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
+// Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+// It should remove all values from list a, which are present in list b keeping their order.
+// array_diff({1, 2}, 2, {1}, 1, *z) == {2} (z == 1)
+// If a value is present in b, all of its occurrences must be removed from the other:
+// array_diff({1, 2, 2, 2, 3}, 5, {2}, 1, *z) == {1, 3} (z == 2)
+function arrayDiff(a, b) {
+    return a.filter((e) => !b.includes(e));
+}
+exports.arrayDiff = arrayDiff;

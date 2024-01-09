@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.countSmileys = void 0;
-function countSmileys(arr) {
-    return arr.filter((x) => x.match(/[:;][-~]?[)D]/)).length;
+exports.arrayDiff = void 0;
+function arrayDiff(a, b) {
+    return a.filter((x) => !b.includes(x));
 }
-exports.countSmileys = countSmileys;
-console.log(countSmileys([":D", ":~)", ";~D", ":)"]));
+exports.arrayDiff = arrayDiff;
+console.log(arrayDiff([1, 2], [2]));

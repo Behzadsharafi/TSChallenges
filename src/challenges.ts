@@ -59,21 +59,15 @@ const squareDigits = (num: number): number => {
     .join("");
 };
 
-// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+// Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
 
-// Rules for a smiling face:
+// It should remove all values from list a, which are present in list b keeping their order.
 
-// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
-// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
-// Every smiling face must have a smiling mouth that should be marked with either ) or D
-// No additional characters are allowed except for those mentioned.
+// array_diff({1, 2}, 2, {1}, 1, *z) == {2} (z == 1)
+// If a value is present in b, all of its occurrences must be removed from the other:
 
-// Valid smiley face examples: :) :D ;-D :~)
-// Invalid smiley faces: ;( :> :} :]
+// array_diff({1, 2, 2, 2, 3}, 5, {2}, 1, *z) == {1, 3} (z == 2)
 
-// Example
-// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
-// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
-// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
-// Note
-// In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
+export function arrayDiff(a: number[], b: number[]): number[] {
+  return a.filter((e) => !b.includes(e));
+}
